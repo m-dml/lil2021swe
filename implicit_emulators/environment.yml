@@ -1,0 +1,33 @@
+# Create:
+# $ conda env create --prefix .implem_env --file environment.yml
+#
+# Update:
+# $ conda env update --prefix .implem_env --file environment.yml --prune
+#
+# Activate:
+# $ conda activate ~/path/to/implem_env/.implem_env
+#
+name: implem_env
+
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+
+dependencies:
+  - jupyter
+  - matplotlib
+  - notebook
+  - pip
+  - cudatoolkit>=11.1
+  - tqdm>=4.41.0
+  - python>=3.6.0
+  - pytorch>=1.9.0
+#  - torchvision>=0.10
+  - pytorch-lightning>=1.4.1
+  - tensorboard>=2.4.1
+  - numpy>=1.19.1
+  - omegaconf>=2.0.1
+  - hydra-core>=1.1.0
+  - pip:
+    - torchsummary

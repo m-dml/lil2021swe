@@ -1,0 +1,3 @@
+- exp_id=min_net0
+- data.name=SWE2D_dt900_Tnorm
+- data.data_fn=torch_calm_closed_boundaries_variable_dp_dt900_Tnorm

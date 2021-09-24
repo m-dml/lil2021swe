@@ -1,0 +1,14 @@
+name: ImplicitModel
+
+_target_: implem.model.LightningImplicitModel
+num_fields: [1,0]                 # number of fields to solve for with linear implicit layer
+stencil_shape: ['cross', 'cross'] # full stencil (9 elements for K=3) vs. cross-shaped (5 elements for K=3)
+stencil_size: [3,3]               # size of stencil along each axis (KxK for 2D etc.)
+sep_eqs_per_field: True           # whether to keep seperate systems of equations for each output field or one big one
+explicit_channels: [2,2]          # direct convolutional output channels (in parallel to those to construct M,b)
+output_channels: [8,3]            # output channels of an impl_layers, similar to output channels of a ResNet block
+add_out_block: True               # whether to replace final impl_layer with simple output Conv layer
+
+defaults:
+  - /layer/layer_implicit
+  - /optim/adam

@@ -1,0 +1,23 @@
+hydra: 
+  run:
+    # output dir for experiments
+    dir: outputs/${data.name}/${model.name}/${exp_id}/${now:%Y-%m-%d_%H%M%S}
+  output_subdir: hydra # changing from dir/.hydra to dir/hydra for visibility 
+
+# General config values 
+exp_id: new_train
+
+# Sub config files
+defaults:
+  - _self_ 
+  - data: swe2D.yaml
+  - model: model_implicit.yaml
+
+# Pytorch lightning trainer's argument
+# default flags are commented to avoid clustering the hyperparameters
+trainer:
+  benchmark: True
+  gpus: 1
+  log_every_n_steps: 50
+  terminate_on_nan: False
+  val_check_interval: 0.5

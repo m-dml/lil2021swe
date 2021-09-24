@@ -1,0 +1,60 @@
+data:
+  name: SWE2D_dt1500_Tnorm
+  _target_: implem.data.DataModule
+  root_data: /gpfs/work/nonnenma/data/emulators/SWE/SWE_2D/
+  data_fn: torch_calm_closed_boundaries_variable_dp_dt1500_Tnorm
+  instance_dimensionality: 2D
+  train_valid_split: 0.8
+  offset: 1
+  batch_size: 16
+model:
+  layer:
+    network:
+      _target_: implem.model.networks.BilinearConvNet
+      hidden_channels:
+      - 32
+      - 24
+      bilin_channels:
+      - 0
+      - 8
+      - 8
+      padding_mode: zeros
+      nonlinearity: ReLU
+      normalization: Identity
+    name: ExplicitLayer
+    _target_: implem.model.ImplicitLayer
+    implicit_mode: false
+    out_conv_kernel_size: 1
+    bilin_out_conv: false
+  optim:
+    _target_: torch.optim.Adam
+    lr: 0.0001
+  name: ExplicitModel
+  _target_: implem.model.LightningImplicitModel
+  pretrain: false
+  num_fields:
+  - 0
+  - 0
+  stencil_shape:
+  - cross
+  - cross
+  stencil_size:
+  - 3
+  - 3
+  sep_eqs_per_field: true
+  explicit_channels:
+  - 3
+  - 2
+  output_channels:
+  - 8
+  - 3
+  add_out_block: true
+exp_id: min_net0
+root: /gpfs/home/nonnenma/projects/emulators/code/emulator_experiments/
+root_model_checkpoint: /gpfs/home/nonnenma/projects/emulators/code/emulator_experiments/model_fits/
+trainer:
+  benchmark: true
+  gpus: 1
+  log_every_n_steps: 50
+  terminate_on_nan: false
+  val_check_interval: 0.5

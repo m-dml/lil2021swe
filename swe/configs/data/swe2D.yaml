@@ -1,0 +1,10 @@
+name: SWE2D
+
+_target_: implem.data.DataModule
+root_data: '../../../../../data/' # need to escape hydra.run.dir defined in configs/default.yaml 
+data_fn: 'dataset_dt300'
+instance_dimensionality: '2D'
+
+train_valid_split: 0.8
+offset: 1
+batch_size: 16

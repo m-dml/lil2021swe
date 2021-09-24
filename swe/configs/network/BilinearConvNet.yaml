@@ -1,0 +1,6 @@
+_target_: implem.model.networks.BilinearConvNet
+hidden_channels: [32, 24]
+bilin_channels: [0, 8, 8]
+padding_mode: 'zeros'
+nonlinearity: 'ReLU'
+normalization: 'Identity'

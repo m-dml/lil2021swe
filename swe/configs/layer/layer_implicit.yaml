@@ -1,0 +1,11 @@
+name: ImplicitLayer
+
+_target_: implem.model.ImplicitLayer
+implicit_mode: True
+linear_solver: 'LinearSolveGSRB'
+out_conv_kernel_size: 1
+bilin_out_conv: False
+init_from_current_x: True
+
+defaults:
+  - /network/BilinearConvNet

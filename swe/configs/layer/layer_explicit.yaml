@@ -1,0 +1,9 @@
+name: ExplicitLayer
+
+_target_: implem.model.ImplicitLayer
+implicit_mode: False
+out_conv_kernel_size: 1
+bilin_out_conv: False
+
+defaults:
+  - /network/BilinearConvNet
