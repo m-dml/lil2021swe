@@ -1,4 +1,4 @@
-# Implicit-scheme Neural Differential Equations for learning stable dynamical systems from data
+# Learning Implicit PDE Integration with Linear Implicit Layers
 
 Code for reproducing the experiments of our NeurIPS 2021 workshop submission.
 To run the code, first create an environment for our implem package for implicitly integrated dynamical models.
