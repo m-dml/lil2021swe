@@ -1,6 +1,6 @@
 # Learning Implicit PDE Integration with Linear Implicit Layers
 
-Code for reproducing the experiments of our NeurIPS 2021 workshop submission.
+Code for reproducing the experiments of our [NeurIPS 2021 workshop submission](https://openreview.net/forum?id=veNBQ15T6N0).
 To run the code, first create an environment for our implem package for implicitly integrated dynamical models.
 We use anaconda to set up and activate the environment via:
 ```
